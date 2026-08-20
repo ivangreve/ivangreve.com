@@ -108,14 +108,21 @@ more. Adding one there is now the only way to add one. Which icon a link gets is
 decided by `iconForHref` in `src/lib/icons.ts`, keyed on the destination rather
 than the label — labels are translated ("Live" / "En vivo"), URLs are not.
 
-**No company logos in the experience section, and that is a decision, not an
-omission.** It was investigated: of the five employers, only Agree.Ag serves a
-usable mark (128px). CookUnity offers a 48px favicon that would print blurry,
-Metalúrgica Vezeta's domain no longer resolves, and — the reason this is filed
-here rather than left to be rediscovered — `kelawar.com` belongs to an unrelated
-digital marketing agency. Pulling favicons by guessed domain would have put a
-stranger's logo beside a co-founder role. One usable mark out of five is not a
-row, it is three broken images.
+**Company marks come from LinkedIn's public company pages.** Each one's
+`og:image` serves a 200×200 square — the shape a tile needs. Every company site
+checked publishes only a horizontal wordmark (CookUnity's is 131×28, Agree.Ag's
+803×245) or a small favicon, and a wordmark at 30px is an illegible smudge.
+
+    curl -s https://www.linkedin.com/company/<slug> | grep -o 'og:image[^>]*'
+
+Kelawar's mark is a fine-grained bat-and-network illustration. Rendered at the
+real 30px and inspected, it is a grey smear, so that row keeps its initial —
+which is what the initial fallback is for. Judge a mark at the size it will
+actually be drawn, not at the size you downloaded it.
+
+Do **not** fetch a favicon by guessing a domain. `kelawar.com` belongs to an
+unrelated digital marketing agency; using it would have put a stranger's logo
+beside a co-founder role. Verify the entity before you use its mark.
 
 **Never link to a private repository.** Of the four projects, only `solar-fs` is
 public — SnowRide, Contapp and Agro Alerta are all closed. A "GitHub" link on a

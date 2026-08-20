@@ -47,6 +47,7 @@ export const es: ResumeData = {
   jobs: [
     {
       company: 'CookUnity',
+      logo: '/logos/cookunity.webp',
       href: 'https://www.cookunity.com',
       location: 'Estados Unidos — remoto',
       period: 'abr 2023 — Actualidad',
@@ -78,6 +79,7 @@ export const es: ResumeData = {
     },
     {
       company: 'Agree.Ag',
+      logo: '/logos/agree.webp',
       href: 'https://agree.ag',
       location: 'Buenos Aires, Argentina',
       period: 'feb 2022 — abr 2023',
@@ -112,6 +114,7 @@ export const es: ResumeData = {
     },
     {
       company: 'Axum Sistemas Inteligentes',
+      logo: '/logos/axum.webp',
       location: 'Gran Buenos Aires, Argentina',
       period: 'oct 2017 — feb 2022',
       roles: [
@@ -126,17 +129,6 @@ export const es: ResumeData = {
         'Trabajé sobre todo el stack — APIs en .NET Core y .NET Framework, MSSQL y PostgreSQL, y Vue.js, React y JavaScript del lado del cliente.',
       ],
       stack: ['.NET Core', '.NET Framework', 'C#', 'Vue.js', 'React', 'MSSQL', 'PostgreSQL', 'MongoDB'],
-    },
-    {
-      company: 'Metalúrgica Vezeta',
-      location: 'Gran Buenos Aires, Argentina',
-      period: 'mar 2014 — oct 2017',
-      roles: [{ title: 'Especialista Informático', period: 'mar 2014 — oct 2017' }],
-      highlights: [
-        'Construí y mantuve la plataforma de ecommerce de la empresa.',
-        'Di soporte técnico e impulsé mejoras en los procesos de negocio de la compañía.',
-      ],
-      stack: ['Desarrollo web', 'Ecommerce', 'Adobe Creative Suite'],
     },
   ],
 

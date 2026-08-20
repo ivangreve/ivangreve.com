@@ -47,6 +47,7 @@ export const en: ResumeData = {
   jobs: [
     {
       company: 'CookUnity',
+      logo: '/logos/cookunity.webp',
       href: 'https://www.cookunity.com',
       location: 'United States — remote',
       period: 'Apr 2023 — Present',
@@ -78,6 +79,7 @@ export const en: ResumeData = {
     },
     {
       company: 'Agree.Ag',
+      logo: '/logos/agree.webp',
       href: 'https://agree.ag',
       location: 'Buenos Aires, Argentina',
       period: 'Feb 2022 — Apr 2023',
@@ -112,6 +114,7 @@ export const en: ResumeData = {
     },
     {
       company: 'Axum Sistemas Inteligentes',
+      logo: '/logos/axum.webp',
       location: 'Greater Buenos Aires, Argentina',
       period: 'Oct 2017 — Feb 2022',
       roles: [
@@ -126,17 +129,6 @@ export const en: ResumeData = {
         'Worked across the whole stack — .NET Core and .NET Framework APIs, MSSQL and PostgreSQL, and Vue.js, React and JavaScript on the client.',
       ],
       stack: ['.NET Core', '.NET Framework', 'C#', 'Vue.js', 'React', 'MSSQL', 'PostgreSQL', 'MongoDB'],
-    },
-    {
-      company: 'Metalúrgica Vezeta',
-      location: 'Greater Buenos Aires, Argentina',
-      period: 'Mar 2014 — Oct 2017',
-      roles: [{ title: 'IT Specialist', period: 'Mar 2014 — Oct 2017' }],
-      highlights: [
-        'Built and maintained the company ecommerce platform.',
-        'Provided technical support and drove business process improvements across the company.',
-      ],
-      stack: ['Web development', 'Ecommerce', 'Adobe Creative Suite'],
     },
   ],
 
