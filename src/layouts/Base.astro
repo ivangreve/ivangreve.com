@@ -140,8 +140,19 @@ const personSchema = {
 
         let index = 0;
 
+        // Pull the neighbours out of lazy loading. The browser already fetches
+        // one ahead on its own, but that is a heuristic — on a slow link a
+        // visitor clicking quickly can outrun it and land on a blank frame.
+        const warm = () => {
+          for (const i of [index - 1, index + 1]) {
+            const img = slides[i]?.querySelector('img');
+            if (img && img.loading === 'lazy') img.loading = 'eager';
+          }
+        };
+
         const paint = () => {
           slides.forEach((s, i) => s.dataset.active = String(i === index));
+          warm();
           dots.forEach((d, i) => {
             if (i === index) d.setAttribute('aria-current', 'true');
             else d.removeAttribute('aria-current');
