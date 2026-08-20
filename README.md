@@ -199,6 +199,22 @@ page is pronounced as Spanish rather than read with English phonetics. None of
 this reaches the printed PDF — `.sr-only` clips to a 1px box, which paper honours
 too, and that was checked rather than assumed.
 
+**Measured, against the built output.** The first screen costs about 127 KB over
+8 requests, none of them JavaScript: 8 KB of HTML and 3 KB of CSS once a host
+compresses them, and the rest images. Scrolling to the projects brings it to
+roughly 260 KB.
+
+Measure `dist/`, never the dev server — its toolbar, HMR client and source maps
+put the same page at 1430 KB across 71 requests, which is a real number about
+something nobody ships:
+
+```bash
+npm run build && python3 -m http.server 8801 --directory dist
+```
+
+Text figures above are brotli; `python3 -m http.server` sends everything
+uncompressed, so read the raw numbers it reports as roughly 4× the truth.
+
 **No analytics, no trackers, no cookie banner.** Nothing to consent to.
 
 ---
