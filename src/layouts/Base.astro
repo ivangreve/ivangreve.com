@@ -143,12 +143,34 @@ const personSchema = {
         // Pull the neighbours out of lazy loading. The browser already fetches
         // one ahead on its own, but that is a heuristic — on a slow link a
         // visitor clicking quickly can outrun it and land on a blank frame.
+        //
+        // Gated on the carousel being on screen. Ungated, this ran on the very
+        // first paint and marked one slide per carousel eager while the whole
+        // section was still thousands of pixels below the fold — overriding the
+        // browser's own judgement about what is worth fetching, on exactly the
+        // slow connections where that judgement matters most.
+        let onScreen = false;
         const warm = () => {
+          if (!onScreen) return;
           for (const i of [index - 1, index + 1]) {
             const img = slides[i]?.querySelector('img');
             if (img && img.loading === 'lazy') img.loading = 'eager';
           }
         };
+
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(
+            ([entry], obs) => {
+              if (!entry.isIntersecting) return;
+              onScreen = true;
+              warm();
+              obs.disconnect();
+            },
+            { rootMargin: '200px' }
+          ).observe(root);
+        } else {
+          onScreen = true;
+        }
 
         const paint = () => {
           slides.forEach((s, i) => s.dataset.active = String(i === index));
