@@ -1,0 +1,81 @@
+---
+import type { ResumeData } from '../data/types';
+import { iconForHref } from '../lib/icons';
+import Icon from './Icon.astro';
+
+interface Props {
+  data: ResumeData;
+}
+
+const { data } = Astro.props;
+---
+
+{/* Exactly two grid children: the portrait and everything else. Splitting it
+    this way is what lets the portrait centre against the full text block —
+    grid-row: 1 / -1 does NOT span implicit rows, so spanning auto-placed
+    siblings directly would have pinned it to the first row. */}
+<div class="hero shell">
+  {/* Marks the very top of the page. Once it scrolls out from under the bar,
+      the bar grows a border and reveals the name. */}
+  <div id="scroll-sentinel" aria-hidden="true"></div>
+
+  {/* Eager, not lazy: it is the largest element above the fold, so it is the
+      LCP candidate and must not wait for the lazy-loading pass. */}
+  <img
+    class="hero__portrait"
+    src="/portrait-200.webp"
+    srcset="/portrait-200.webp 200w, /portrait-400.webp 400w"
+    sizes="(min-width: 52rem) 168px, 108px"
+    width="200"
+    height="200"
+    alt={`${data.name}, ${data.role}`}
+    fetchpriority="high"
+    decoding="async"
+  />
+
+  <div class="hero__body">
+    <p class="hero__pill">
+      <span class="hero__dot" aria-hidden="true"></span>
+      {data.availability}
+    </p>
+
+    <h1 class="hero__name">{data.name}</h1>
+    <p class="hero__role">{data.role}</p>
+
+    <p class="hero__location">
+      <Icon name="location" />
+      {data.location}
+    </p>
+
+    <div class="hero__intro">
+      {data.intro.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+
+    <div class="hero__links">
+      <a class="control control--primary" href={`mailto:${data.email}`}>
+        <Icon name="mail" />
+        {data.email}
+      </a>
+
+      {
+        data.links.map((link) => (
+          <a class="control" href={link.href} rel="noopener noreferrer" target="_blank">
+            <Icon name={iconForHref(link.href)} />
+            {link.label}
+            <span class="sr-only"> {data.ui.newTab}</span>
+          </a>
+        ))
+      }
+
+      <button class="control" type="button" onclick="window.print()">
+        <Icon name="print" />
+        {data.ui.printResume}
+      </button>
+    </div>
+
+    {/* Print-only: a sheet of paper cannot follow a link, so spell the addresses out. */}
+    <p class="hero__contact-print">
+      {data.email} · {data.links.map((l) => l.href.replace(/^https?:\/\/(www\.)?/, '')).join(' · ')}
+    </p>
+  </div>
+</div>

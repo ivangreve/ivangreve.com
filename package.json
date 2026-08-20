@@ -1,0 +1,23 @@
+{
+  "name": "ivangreve.com",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal site and resume — Iván Greve, Frontend Engineer",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "contrast": "python3 scripts/contrast-audit.py",
+    "print-check": "astro build && python3 scripts/check-print-pages.py",
+    "og": "python3 scripts/make-og-image.py"
+  },
+  "dependencies": {
+    "astro": "^5.14.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.9.2"
+  }
+}

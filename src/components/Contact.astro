@@ -1,0 +1,40 @@
+---
+import type { ResumeData } from '../data/types';
+import { iconForHref } from '../lib/icons';
+import Icon from './Icon.astro';
+
+interface Props {
+  data: ResumeData;
+}
+
+const { data } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<section class="contact shell" id="contact" aria-labelledby="contact-title">
+  <h2 class="contact__heading" id="contact-title">{data.contact.heading}</h2>
+  <p class="contact__body">{data.contact.body}</p>
+
+  <div class="contact__actions">
+    <a class="control control--primary" href={`mailto:${data.email}`}>
+      <Icon name="mail" />
+      {data.contact.cta}
+    </a>
+
+    {
+      data.links.map((link) => (
+        <a class="control" href={link.href} rel="noopener noreferrer" target="_blank">
+          <Icon name={iconForHref(link.href)} />
+          {link.label}
+          {link.handle && <span class="contact__handle">{link.handle}</span>}
+          <span class="sr-only"> {data.ui.newTab}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<footer class="footer shell">
+  <p>© {year} {data.name}</p>
+  <p>{data.footer}</p>
+</footer>

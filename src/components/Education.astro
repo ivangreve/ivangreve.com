@@ -1,0 +1,45 @@
+---
+import type { ResumeData } from '../data/types';
+
+interface Props {
+  data: ResumeData;
+}
+
+const { data } = Astro.props;
+const certsLabel = data.lang === 'es' ? 'Certificaciones' : 'Certifications';
+---
+
+<section class="section shell" id="education" aria-labelledby="education-title">
+  <h2 class="section__title" id="education-title">{data.sections.education}</h2>
+
+  <div class="studies">
+    {
+      data.education.map((study) => (
+        <article class="study">
+          <p class="study__period">{study.period}</p>
+          <div>
+            <h3 class="study__degree">{study.degree}</h3>
+            <p class="study__institution">{study.institution}</p>
+            {study.note && <p class="study__note">{study.note}</p>}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  {
+    data.certifications.length > 0 && (
+      <div class="certs">
+        <h3 class="certs__label">{certsLabel}</h3>
+        {data.certifications.map((cert) => (
+          <p class="cert">
+            <span class="cert__name">{cert.name}</span>
+            <span class="cert__meta">
+              {cert.issuer} · {cert.year}
+            </span>
+          </p>
+        ))}
+      </div>
+    )
+  }
+</section>

@@ -1,0 +1,89 @@
+---
+import type { ResumeData } from '../data/types';
+import Icon from './Icon.astro';
+
+interface Props {
+  data: ResumeData;
+}
+
+const { data } = Astro.props;
+---
+
+<section class="section shell" id="experience" aria-labelledby="experience-title">
+  <h2 class="section__title" id="experience-title">{data.sections.experience}</h2>
+
+  <div class="jobs">
+    {
+      data.jobs.map((job) => (
+        <article class="job">
+          <div class="job__period">
+            {/* Decorative: the company name sits right beside it in text, so the
+                tile adds nothing for a screen reader and is hidden from it.
+
+                The initial is always rendered and the logo is layered over it.
+                A logo that 404s — a typo in the path, a file not committed —
+                then falls back to the letter instead of leaving an empty box
+                sitting among four filled ones. */}
+            <span class="job__mark" aria-hidden="true">
+              <span class="job__mark-initial">{job.company.trim().charAt(0)}</span>
+              {
+                job.logo && (
+                  <img
+                    class="job__mark-img"
+                    src={job.logo}
+                    alt=""
+                    width="60"
+                    height="60"
+                    loading="lazy"
+                    decoding="async"
+                    onerror="this.remove()"
+                  />
+                )
+              }
+            </span>
+            {job.period}
+            {job.concurrent && <span class="job__concurrent">{data.ui.concurrent}</span>}
+          </div>
+
+          <div class="job__detail">
+            <h3 class="job__company">
+              {job.href ? (
+                <a class="job__link" href={job.href} rel="noopener noreferrer" target="_blank">
+                  {job.company}
+                  <Icon name="external" size={13} class="job__link-icon" />
+                  <span class="sr-only"> {data.ui.newTab}</span>
+                </a>
+              ) : (
+                job.company
+              )}
+            </h3>
+            <p class="job__meta">{job.location}</p>
+
+            <ul class="job__roles" data-single={String(job.roles.length === 1)}>
+              {job.roles.map((role) => (
+                <li class="job__role">
+                  <span class="job__role-title">{role.title}</span>
+                  <span class="job__role-period">{role.period}</span>
+                </li>
+              ))}
+            </ul>
+
+            {job.summary && <p class="job__summary">{job.summary}</p>}
+
+            <ul class="job__highlights">
+              {job.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+
+            <ul class="chips">
+              {job.stack.map((tech) => (
+                <li class="chip">{tech}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+import type { ResumeData } from '../data/types';
+
+interface Props {
+  data: ResumeData;
+}
+
+const { data } = Astro.props;
+
+/**
+ * The headline stack — what a recruiter is actually scanning for. Rendered with
+ * more weight than the rest so the eye lands on it first instead of reading
+ * forty identical grey chips.
+ *
+ * Defined here rather than in the content files because these are product
+ * names: they are the same string in every language, so one set covers both and
+ * there is nothing to keep in sync.
+ */
+const PRIMARY = new Set([
+  'React',
+  'React Native',
+  'Angular',
+  'TypeScript',
+  'Next.js',
+  'Node.js',
+]);
+---
+
+<section class="section shell" id="skills" aria-labelledby="skills-title">
+  <h2 class="section__title" id="skills-title">{data.sections.skills}</h2>
+
+  <div class="skills">
+    {
+      data.skills.map((group) => (
+        <div class="skillgroup">
+          <h3 class="skillgroup__label">{group.label}</h3>
+          <ul class="chips chips--animated">
+            {group.items.map((item, i) => (
+              <li
+                class:list={['chip', PRIMARY.has(item) && 'chip--primary']}
+                style={`--i:${i}`}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

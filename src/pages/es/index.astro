@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import Topbar from '../../components/Topbar.astro';
+import Hero from '../../components/Hero.astro';
+import Experience from '../../components/Experience.astro';
+import Projects from '../../components/Projects.astro';
+import Skills from '../../components/Skills.astro';
+import Education from '../../components/Education.astro';
+import Contact from '../../components/Contact.astro';
+import { es as data } from '../../data/es';
+---
+
+<Base data={data}>
+  <Topbar data={data} />
+  <main id="main">
+    <Hero data={data} />
+    <Experience data={data} />
+    <Projects data={data} />
+    <Skills data={data} />
+    <Education data={data} />
+    <Contact data={data} />
+  </main>
+</Base>

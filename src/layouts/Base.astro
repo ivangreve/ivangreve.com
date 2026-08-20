@@ -1,0 +1,206 @@
+---
+import '../styles/global.css';
+import type { ResumeData } from '../data/types';
+
+interface Props {
+  data: ResumeData;
+}
+
+const { data } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const alternate = new URL(data.altLang.href, Astro.site).href;
+
+// Shared by both languages — the card is name, role and stack, which do not
+// translate. Regenerate with scripts/make-og-image.py after editing those.
+const ogImage = new URL('/og.png', Astro.site).href;
+const ogImageAlt = `${data.name} — ${data.role}. ${data.location}.`;
+
+// Structured data: this is the machine-readable version of the same résumé, so a
+// recruiter's tooling (and Google) reads it without guessing at the markup.
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: data.name,
+  jobTitle: data.role,
+  email: `mailto:${data.email}`,
+  url: 'https://ivangreve.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'San Carlos de Bariloche',
+    addressRegion: 'Río Negro',
+    addressCountry: 'AR',
+  },
+  sameAs: data.links.map((l) => l.href),
+  worksFor: { '@type': 'Organization', name: 'CookUnity' },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Universidad Nacional de La Matanza',
+  },
+  knowsLanguage: ['es', 'en'],
+  knowsAbout: data.skills.flatMap((g) => g.items),
+};
+---
+
+<!doctype html>
+<html lang={data.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{data.meta.title}</title>
+    <meta name="description" content={data.meta.description} />
+    <meta name="author" content={data.name} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101211" media="(prefers-color-scheme: dark)" />
+
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={data.altLang.code} href={alternate} />
+    <link rel="alternate" hreflang={data.lang} href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).href} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={data.meta.title} />
+    <meta property="og:description" content={data.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={data.name} />
+    <meta property="og:locale" content={data.lang === 'es' ? 'es_AR' : 'en_US'} />
+    <meta property="og:locale:alternate" content={data.lang === 'es' ? 'en_US' : 'es_AR'} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="profile:first_name" content="Iván" />
+    <meta property="profile:last_name" content="Greve" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={data.meta.title} />
+    <meta name="twitter:description" content={data.meta.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <script is:inline set:html={JSON.stringify(personSchema)} type="application/ld+json" />
+
+    <!-- Applied before first paint so a dark-theme visitor never sees a white flash. -->
+    <script is:inline>
+      // Marks that scripting is on, so the reveal animation's hidden resting
+      // state only ever applies where something exists to un-hide it.
+      document.documentElement.classList.add('js');
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.dataset.theme = saved;
+        }
+      } catch {}
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">{data.ui.skipToContent}</a>
+    <slot />
+
+    <script is:inline>
+      // Theme toggle. Resolves the *current* appearance first so the first click
+      // always flips what the visitor is actually looking at, system pref included.
+      const root = document.documentElement;
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const current =
+          root.dataset.theme ??
+          (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem('theme', next);
+        } catch {}
+      });
+
+      // Border + name in the top bar only once the hero has scrolled past.
+      const bar = document.querySelector('.topbar');
+      const sentinel = document.getElementById('scroll-sentinel');
+      if (bar && sentinel && 'IntersectionObserver' in window) {
+        new IntersectionObserver(
+          ([entry]) => {
+            bar.dataset.scrolled = String(!entry.isIntersecting);
+          },
+          { rootMargin: '-56px 0px 0px 0px' }
+        ).observe(sentinel);
+      }
+
+      // Reveal each skills group once it scrolls into view. Fires once per
+      // group and then stops observing — this is an entrance, not a state.
+      const chipGroups = [...document.querySelectorAll('.chips--animated')];
+      if (chipGroups.length) {
+        if ('IntersectionObserver' in window) {
+          const reveal = new IntersectionObserver(
+            (entries, obs) => {
+              for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                entry.target.dataset.revealed = 'true';
+                obs.unobserve(entry.target);
+              }
+            },
+            { rootMargin: '0px 0px -12% 0px', threshold: 0.15 }
+          );
+          for (const group of chipGroups) reveal.observe(group);
+        } else {
+          // No observer: show everything rather than risk hiding content.
+          for (const group of chipGroups) group.dataset.revealed = 'true';
+        }
+      }
+
+      // No beforeprint hook here on purpose. Revealing groups at print time
+      // starts the 450ms transition, so the dialog can capture a chip
+      // mid-fade at ~0.1 opacity. The print stylesheet already forces
+      // opacity: 1 !important on every chip, which resolves instantly and does
+      // not depend on scripting. Verified in the generated PDF.
+
+      // Mark the section currently in view in the top-bar nav.
+      const navLinks = [...document.querySelectorAll('.topnav a[data-nav]')];
+      if (navLinks.length && 'IntersectionObserver' in window) {
+        const visible = new Set();
+
+        const atBottom = () =>
+          window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+        const paint = () => {
+          // The last section sits below the furthest the page can scroll, so it
+          // can never reach the detection band on its own — without this it
+          // would stay unreachable and the previous section would keep the
+          // highlight at the very bottom of the page.
+          const current = atBottom()
+            ? navLinks[navLinks.length - 1]
+            : // More than one section can straddle the band; the first in
+              // document order is the one the reader is actually in.
+              navLinks.find((link) => visible.has(link.dataset.nav));
+
+          for (const link of navLinks) {
+            if (link === current) link.setAttribute('aria-current', 'true');
+            else link.removeAttribute('aria-current');
+          }
+        };
+
+        addEventListener('scroll', paint, { passive: true });
+
+        const spy = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) visible.add(entry.target.id);
+              else visible.delete(entry.target.id);
+            }
+            paint();
+          },
+          // A section counts as current while it crosses a band just below the
+          // bar, so the highlight tracks reading position rather than flipping
+          // the moment any part of a section touches the viewport.
+          { rootMargin: '-25% 0px -65% 0px' }
+        );
+
+        for (const link of navLinks) {
+          const section = document.getElementById(link.dataset.nav);
+          if (section) spy.observe(section);
+        }
+      }
+    </script>
+  </body>
+</html>

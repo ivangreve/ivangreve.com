@@ -1,0 +1,69 @@
+---
+import type { ResumeData } from '../data/types';
+import Icon from './Icon.astro';
+
+interface Props {
+  data: ResumeData;
+}
+
+const { data } = Astro.props;
+
+// Every entry points at a section id that exists in the page. Keep in step with
+// the ids on the <section> elements in the section components.
+const navItems = [
+  { id: 'experience', label: data.sections.experience },
+  { id: 'projects', label: data.sections.projects },
+  { id: 'skills', label: data.sections.skills },
+  { id: 'education', label: data.sections.education },
+  { id: 'contact', label: data.sections.contact },
+];
+
+const navLabel = data.lang === 'es' ? 'Secciones' : 'Sections';
+---
+
+<header class="topbar">
+  <div class="shell topbar__inner">
+    <a class="topbar__name" href="#main">{data.name}</a>
+
+    <nav class="topnav" aria-label={navLabel}>
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={`#${item.id}`} data-nav={item.id}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="controls">
+      {/* lang= as well as hreflang=: hreflang describes the destination, lang
+          tells a screen reader how to pronounce the word "Español"/"English"
+          sitting inside a page written in the other language. */}
+      <a
+        class="control"
+        href={data.altLang.href}
+        hreflang={data.altLang.code}
+        lang={data.altLang.code}
+        rel="alternate"
+      >
+        <Icon name="globe" />
+        {data.altLang.label}
+      </a>
+
+      <button
+        class="control control--icon"
+        id="theme-toggle"
+        type="button"
+        aria-label={data.ui.toggleTheme}
+        title={data.ui.toggleTheme}
+      >
+        <Icon name="sun" class="icon-light" />
+        <Icon name="moon" class="icon-dark" />
+      </button>
+    </div>
+  </div>
+</header>
