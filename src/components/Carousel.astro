@@ -1,0 +1,89 @@
+---
+import type { Shot } from '../data/types';
+
+interface Props {
+  shots: Shot[];
+  /** Names the carousel for assistive tech — the project it belongs to. */
+  label: string;
+  /** Translated UI strings. */
+  ui: { previous: string; next: string; goToSlide: string; slideOf: string };
+  /** Distinguishes this carousel's controls from the others on the page. */
+  id: string;
+}
+
+const { shots, label, ui, id } = Astro.props;
+---
+
+{/*
+  A scroll-snap track, not a JS slider. Swipe, trackpad, scrollbar and keyboard
+  all work before a single line of script runs; the script only adds the dots,
+  the arrows and the active-slide emphasis. With scripting off you still get a
+  fully usable, scrollable gallery.
+*/}
+<div class="shots" data-carousel data-carousel-id={id}>
+  <ul
+    class="shots__track"
+    id={`${id}-track`}
+    tabindex="0"
+    role="group"
+    aria-roledescription="carousel"
+    aria-label={label}
+  >
+    {
+      shots.map((shot, i) => (
+        <li class="shots__slide" data-slide={i} aria-label={`${i + 1} ${ui.slideOf} ${shots.length}`}>
+          <img
+            src={shot.src}
+            alt={shot.alt}
+            width="1280"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    shots.length > 1 && (
+      <div class="shots__controls">
+        <button
+          class="shots__arrow"
+          type="button"
+          data-dir="-1"
+          aria-controls={`${id}-track`}
+          aria-label={ui.previous}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 5-7 7 7 7" />
+          </svg>
+        </button>
+
+        <div class="shots__dots">
+          {shots.map((_, i) => (
+            <button
+              class="shots__dot"
+              type="button"
+              data-goto={i}
+              aria-controls={`${id}-track`}
+              aria-label={`${ui.goToSlide} ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          class="shots__arrow"
+          type="button"
+          data-dir="1"
+          aria-controls={`${id}-track`}
+          aria-label={ui.next}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m9 5 7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    )
+  }
+</div>

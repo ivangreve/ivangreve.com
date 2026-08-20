@@ -124,6 +124,23 @@ Do **not** fetch a favicon by guessing a domain. `kelawar.com` belongs to an
 unrelated digital marketing agency; using it would have put a stranger's logo
 beside a co-founder role. Verify the entity before you use its mark.
 
+**The project carousel is a scroll-snap track, not a JS slider.** Swipe,
+trackpad, scrollbar and keyboard scrolling all work before a line of script
+runs; the script only adds the dots, the arrows and the active-slide emphasis,
+and `html.js` gates the dimming so a no-JS visitor sees every slide at full
+opacity. Arrow keys work on the focused track; `prefers-reduced-motion` drops
+both the smooth scroll and the transition.
+
+Every slide is letterboxed to the same 16:10 frame with **transparent** padding
+— the frame supplies its own background, so one file reads correctly in both
+themes and the carousel never changes height between projects. Phone
+screenshots are paired two to a slide, because a single 0.46-ratio portrait shot
+in a 16:10 frame is mostly empty space. Build them with
+`scripts/build-shots.py`.
+
+The whole carousel is hidden in print: on paper it would be one frozen slide
+eating a third of a page, under dots that do nothing.
+
 **Never link to a private repository.** Of the four projects, only `solar-fs` is
 public — SnowRide, Contapp and Agro Alerta are all closed. A "GitHub" link on a
 private repo 404s for every visitor, which reads worse than no link at all, so

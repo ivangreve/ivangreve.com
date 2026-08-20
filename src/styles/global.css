@@ -759,16 +759,16 @@ ul {
 
 .projects {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
+/* Carousel on top, copy underneath. The screenshots are the argument; squeezing
+   them into a 17rem side column made them decoration. */
 .project {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg-raised);
   overflow: hidden;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 17rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -777,23 +777,20 @@ ul {
   box-shadow: var(--shadow);
 }
 
-.project--no-image {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-@media (max-width: 46rem) {
-  .project {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 .project__body {
-  padding: 1.5rem;
+  padding: 1.4rem 1.5rem 1.5rem;
   min-width: 0;
 }
 
+.project__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+}
+
 .project__name {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 640;
   letter-spacing: -0.02em;
 }
@@ -802,11 +799,10 @@ ul {
   color: var(--accent-text);
   font-size: 0.875rem;
   font-weight: 540;
-  margin-top: 0.2rem;
 }
 
 .project__description {
-  margin-top: 0.85rem;
+  margin-top: 0.75rem;
   color: var(--text-muted);
   font-size: 0.925rem;
   max-width: var(--measure);
@@ -849,29 +845,162 @@ ul {
   flex: none;
 }
 
-.project__figure {
-  margin: 0;
+/* --- Carousel ------------------------------------------------------------ */
+
+.shots {
+  position: relative;
   background: var(--bg-sunken);
-  border-left: 1px solid var(--border);
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  min-height: 0;
+  border-bottom: 1px solid var(--border);
 }
 
-@media (max-width: 46rem) {
-  .project__figure {
-    border-left: 0;
-    border-top: 1px solid var(--border);
-    order: -1;
+/* The track IS the mechanism. Scroll-snap gives native swipe, trackpad and
+   keyboard scrolling with no script; the script only adds dots, arrows and the
+   active-slide emphasis on top. */
+.shots__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.shots__track::-webkit-scrollbar {
+  display: none;
+}
+
+.shots__track:focus-visible {
+  outline-offset: -3px;
+}
+
+.shots__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  padding: 0.9rem;
+}
+
+.shots__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* The depth cue: the slide you are on sits forward and lit, its neighbours
+     sit back and dimmed, so moving between them reads as motion rather than a
+     jump cut. Set by the observer in Base.astro. */
+  opacity: 0.45;
+  transform: scale(0.93);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.shots__slide[data-active='true'] img {
+  opacity: 1;
+  transform: none;
+}
+
+/* No script, no observer, no emphasis — every slide simply reads normally. */
+html:not(.js) .shots__slide img {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shots__track {
+    scroll-behavior: auto;
+  }
+
+  .shots__slide img {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
-.project__figure img {
-  max-height: 15rem;
-  width: auto;
-  object-fit: contain;
-  border-radius: 6px;
+/* --- Carousel controls ---------------------------------------------------- */
+
+.shots__controls {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.shots__controls > * {
+  pointer-events: auto;
+}
+
+.shots__arrow {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--border-interactive);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-raised) 88%, transparent);
+  backdrop-filter: blur(6px);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.shots__arrow svg {
+  width: 15px;
+  height: 15px;
+}
+
+.shots__arrow:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--text-faint);
+}
+
+.shots__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.shots__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-raised) 88%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+}
+
+.shots__dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--border-interactive);
+  cursor: pointer;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.shots__dot[aria-current='true'] {
+  width: 18px;
+  background: var(--accent);
+}
+
+/* The tap target has to clear 24px even though the dot is 7px. */
+.shots__dot::after {
+  content: '';
+  position: absolute;
+  inset: -9px;
+}
+
+.shots__dot {
+  position: relative;
 }
 
 /* --- Skills -------------------------------------------------------------- */
@@ -1255,7 +1384,9 @@ ul {
     color: var(--text);
   }
 
-  .project__figure,
+  /* The carousel is a screen device — on paper it would be one frozen slide
+     eating a third of a page, with dots that do nothing. */
+  .shots,
   .contact,
   .footer {
     display: none !important;

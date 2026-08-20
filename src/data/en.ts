@@ -33,6 +33,12 @@ export const en: ResumeData = {
     concurrent: 'alongside full-time work',
     newTab: '(opens in a new tab)',
     privateSource: 'Private source',
+    carousel: {
+      previous: 'Previous image',
+      next: 'Next image',
+      goToSlide: 'Go to image',
+      slideOf: 'of',
+    },
   },
 
   sections: {
@@ -138,9 +144,13 @@ export const en: ResumeData = {
       description:
         'A two-sided marketplace: riders find an instructor on the map, filter by discipline, check the profile and book in seconds; instructors manage their calendar, sync it with Google Calendar and get paid. Expo app for both sides, plus a landing site.',
       stack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'TanStack Query'],
-      image: '/projects/snowride.webp',
-      imageAlt:
-        'SnowRide app screens — the explore map with instructors around Bariloche, an instructor profile, and the bookings list',
+      shots: [
+        { src: '/projects/snowride-1.webp', alt: 'Explore map with instructors around Bariloche, beside an instructor profile showing rate, disciplines and reviews' },
+        { src: '/projects/snowride-2.webp', alt: 'A rider\u2019s bookings list and the chat thread with their instructor' },
+        { src: '/projects/snowride-3.webp', alt: 'The instructor side: upcoming classes and the public profile they manage' },
+        { src: '/projects/snowride-4.webp', alt: 'Class detail with the student and location, next to the alerts screen' },
+        { src: '/projects/snowride-5.webp', alt: 'Calendar sync settings and the resulting Google Calendar entries' },
+      ],
       links: [],
       privateSource: true,
     },
@@ -150,8 +160,12 @@ export const en: ResumeData = {
       description:
         'A dashboard for Felicity Solar off-grid installations that keeps its own time-series database — 5-minute telemetry plus daily rollups — so it can answer what the vendor cloud cannot: real self-sufficiency, how much energy the backup generator actually contributed, battery charge balance and estimated fuel cost. Multi-user, with per-owner isolation.',
       stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'TypeORM', 'ECharts', 'Vercel'],
-      image: '/projects/solar-fs.png',
-      imageAlt: 'solar-fs dashboard showing generation, self-sufficiency and intraday power curves',
+      shots: [
+        { src: '/projects/solar-fs-1.webp', alt: 'Daily overview: generation, self-sufficiency and the intraday power curves for PV, generator, load and battery charge' },
+        { src: '/projects/solar-fs-2.webp', alt: 'Devices view with the system diagram \u2014 inverter and battery bank with live state of charge' },
+        { src: '/projects/solar-fs-3.webp', alt: 'Energy view: source mix and the daily Sankey diagram of kWh per node' },
+        { src: '/projects/solar-fs-4.webp', alt: 'Plant home with live power and the day\u2019s running totals' },
+      ],
       links: [
         { label: 'Live', href: 'https://solar-fs.vercel.app' },
         { label: 'GitHub', href: 'https://github.com/ivangreve/solar-fs' },
@@ -163,9 +177,12 @@ export const en: ResumeData = {
       description:
         'No orbital sensor can resolve a 3 mm insect. So instead of detecting pests, this answers the question an agronomist actually opens the week with — which field do I walk first? — by combining crop phenology measured from Sentinel-2, thermal accumulation from climate reanalysis, and trap counts from the monitoring network. Every number traces back to an image you can look at, on the date the model read it.',
       stack: ['Python', 'Sentinel-2', 'STAC', 'NDVI / NDRE', 'Savitzky–Golay', 'Time series'],
-      image: '/projects/agro-alerta.webp',
-      imageAlt:
-        'Agro Alerta dashboard — fields outlined on a satellite mosaic with risk scores, a field detail card, and the portfolio greenness curve across the season',
+      shots: [
+        { src: '/projects/agro-1.webp', alt: 'Fields outlined on a satellite mosaic with risk scores, and a field card explaining why it scored 74' },
+        { src: '/projects/agro-2.webp', alt: 'Single-field report: the season\u2019s greenness curve and the sectors flagged as anomalous' },
+        { src: '/projects/agro-3.webp', alt: 'Portfolio table ranking every field by risk, area and days to the next emergence window' },
+        { src: '/projects/agro-4.webp', alt: 'Drawing a new field on the map, and the sign-in screen' },
+      ],
       links: [],
       privateSource: true,
     },

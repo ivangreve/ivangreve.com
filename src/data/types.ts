@@ -41,14 +41,21 @@ export interface Job {
   concurrent?: boolean;
 }
 
+export interface Shot {
+  /** Path under /public. Every slide is letterboxed to 16:10 with transparent
+   *  padding, so one file reads correctly against either theme. */
+  src: string;
+  /** Describe what the screen shows, not that it is a screenshot. */
+  alt: string;
+}
+
 export interface Project {
   name: string;
   tagline: string;
   description: string;
   stack: string[];
-  /** Path under /public. Omit for a text-only card. */
-  image?: string;
-  imageAlt?: string;
+  /** Carousel slides. Omit or leave empty for a text-only entry. */
+  shots?: Shot[];
   /**
    * Only ever list links a stranger can actually open. A link to a private
    * repository 404s for every visitor, which reads worse than no link at all.
@@ -109,6 +116,14 @@ export interface ResumeData {
     newTab: string;
     /** Marker on projects whose repository is closed. */
     privateSource: string;
+    /** Labels for the project image carousel. */
+    carousel: {
+      previous: string;
+      next: string;
+      goToSlide: string;
+      /** Joins position and total, as in "2 of 5". */
+      slideOf: string;
+    };
   };
 
   /**

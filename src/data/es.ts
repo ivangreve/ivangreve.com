@@ -33,6 +33,12 @@ export const es: ResumeData = {
     concurrent: 'en paralelo al trabajo full time',
     newTab: '(se abre en una pestaña nueva)',
     privateSource: 'Código privado',
+    carousel: {
+      previous: 'Imagen anterior',
+      next: 'Imagen siguiente',
+      goToSlide: 'Ir a la imagen',
+      slideOf: 'de',
+    },
   },
 
   sections: {
@@ -138,9 +144,13 @@ export const es: ResumeData = {
       description:
         'Un marketplace de dos lados: el rider encuentra instructores en el mapa, filtra por disciplina, mira el perfil y reserva en segundos; el instructor administra su calendario, lo sincroniza con Google Calendar y cobra. App en Expo para ambos lados, más el sitio de la landing.',
       stack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'TanStack Query'],
-      image: '/projects/snowride.webp',
-      imageAlt:
-        'Pantallas de la app SnowRide — el mapa de exploración con instructores en Bariloche, el perfil de un instructor y la lista de reservas',
+      shots: [
+        { src: '/projects/snowride-1.webp', alt: 'Mapa de exploraci\u00f3n con instructores en Bariloche, junto al perfil de un instructor con su tarifa, disciplinas y rese\u00f1as' },
+        { src: '/projects/snowride-2.webp', alt: 'La lista de reservas de un rider y el chat con su instructor' },
+        { src: '/projects/snowride-3.webp', alt: 'El lado del instructor: sus pr\u00f3ximas clases y el perfil p\u00fablico que administra' },
+        { src: '/projects/snowride-4.webp', alt: 'Detalle de una clase con el alumno y el lugar, al lado de la pantalla de avisos' },
+        { src: '/projects/snowride-5.webp', alt: 'Configuraci\u00f3n de sincronizaci\u00f3n de calendario y las entradas que genera en Google Calendar' },
+      ],
       links: [],
       privateSource: true,
     },
@@ -150,8 +160,12 @@ export const es: ResumeData = {
       description:
         'Un dashboard para instalaciones off-grid de Felicity Solar que mantiene su propia base de series temporales — telemetría cada 5 minutos más consolidados diarios — para responder lo que la nube del fabricante no responde: autosuficiencia real, cuánta energía aportó de verdad el generador de respaldo, balance de carga de las baterías y costo estimado de combustible. Multiusuario, con aislamiento por dueño.',
       stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'TypeORM', 'ECharts', 'Vercel'],
-      image: '/projects/solar-fs.png',
-      imageAlt: 'Dashboard de solar-fs con generación, autosuficiencia y curvas de potencia del día',
+      shots: [
+        { src: '/projects/solar-fs-1.webp', alt: 'Resumen diario: generaci\u00f3n, autosuficiencia y las curvas de potencia del d\u00eda para paneles, generador, consumo y carga de bater\u00edas' },
+        { src: '/projects/solar-fs-2.webp', alt: 'Vista de dispositivos con el diagrama del sistema \u2014 inversor y banco de bater\u00edas con su carga en vivo' },
+        { src: '/projects/solar-fs-3.webp', alt: 'Vista de energ\u00eda: mezcla de fuentes y el diagrama Sankey diario de kWh por nodo' },
+        { src: '/projects/solar-fs-4.webp', alt: 'Inicio de la planta con la potencia en vivo y los acumulados del d\u00eda' },
+      ],
       links: [
         { label: 'En vivo', href: 'https://solar-fs.vercel.app' },
         { label: 'GitHub', href: 'https://github.com/ivangreve/solar-fs' },
@@ -163,9 +177,12 @@ export const es: ResumeData = {
       description:
         'Ningún sensor orbital resuelve un insecto de 3 mm. Así que en vez de detectar plagas, esto responde la pregunta con la que un asesor abre la semana — ¿qué lote recorro primero? — combinando fenología del cultivo medida por Sentinel-2, acumulación térmica de reanálisis climático y capturas de las trampas de la red de monitoreo. Cada número se puede rastrear hasta una imagen que se puede mirar, en la fecha exacta en que el modelo la leyó.',
       stack: ['Python', 'Sentinel-2', 'STAC', 'NDVI / NDRE', 'Savitzky–Golay', 'Series temporales'],
-      image: '/projects/agro-alerta.webp',
-      imageAlt:
-        'Panel de Agro Alerta — lotes dibujados sobre un mosaico satelital con puntajes de riesgo, la ficha de un lote y la curva de verdor del portafolio a lo largo de la campaña',
+      shots: [
+        { src: '/projects/agro-1.webp', alt: 'Lotes dibujados sobre un mosaico satelital con sus puntajes de riesgo, y la ficha de un lote explicando por qu\u00e9 sac\u00f3 74' },
+        { src: '/projects/agro-2.webp', alt: 'Informe de un lote: la curva de verdor de la campa\u00f1a y los sectores marcados como an\u00f3malos' },
+        { src: '/projects/agro-3.webp', alt: 'Tabla del portafolio ordenando cada lote por riesgo, superficie y d\u00edas hasta la pr\u00f3xima ventana de emergencia' },
+        { src: '/projects/agro-4.webp', alt: 'Dibujando un lote nuevo sobre el mapa, y la pantalla de acceso' },
+      ],
       links: [],
       privateSource: true,
     },

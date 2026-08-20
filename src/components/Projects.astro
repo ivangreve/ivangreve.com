@@ -1,6 +1,7 @@
 ---
 import type { ResumeData } from '../data/types';
 import { iconForHref } from '../lib/icons';
+import Carousel from './Carousel.astro';
 import Icon from './Icon.astro';
 
 interface Props {
@@ -8,6 +9,8 @@ interface Props {
 }
 
 const { data } = Astro.props;
+
+const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 ---
 
 <section class="section shell" id="projects" aria-labelledby="projects-title">
@@ -16,10 +19,22 @@ const { data } = Astro.props;
   <div class="projects">
     {
       data.projects.map((project) => (
-        <article class:list={['project', !project.image && 'project--no-image']}>
+        <article class="project">
+          {project.shots && project.shots.length > 0 && (
+            <Carousel
+              shots={project.shots}
+              label={project.name}
+              ui={data.ui.carousel}
+              id={`shots-${slug(project.name)}`}
+            />
+          )}
+
           <div class="project__body">
-            <h3 class="project__name">{project.name}</h3>
-            <p class="project__tagline">{project.tagline}</p>
+            <div class="project__head">
+              <h3 class="project__name">{project.name}</h3>
+              <p class="project__tagline">{project.tagline}</p>
+            </div>
+
             <p class="project__description">{project.description}</p>
 
             <ul class="chips">
@@ -49,12 +64,6 @@ const { data } = Astro.props;
               </div>
             )}
           </div>
-
-          {project.image && (
-            <figure class="project__figure">
-              <img src={project.image} alt={project.imageAlt ?? ''} loading="lazy" decoding="async" />
-            </figure>
-          )}
         </article>
       ))
     }
