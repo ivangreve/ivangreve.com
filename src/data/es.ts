@@ -5,13 +5,13 @@ export const es: ResumeData = {
   altLang: { code: 'en', label: 'English', href: '/' },
 
   meta: {
-    title: 'Iván Greve — Frontend Engineer',
+    title: 'Iván Greve — Ingeniero Frontend',
     description:
       'Frontend Engineer con más de 8 años construyendo productos de punta a punta. React, React Native, Angular y TypeScript en CookUnity. Radicado en Bariloche, Argentina — trabajo remoto.',
   },
 
   name: 'Iván Greve',
-  role: 'Frontend Engineer',
+  role: 'Ingeniero Frontend',
   location: 'San Carlos de Bariloche, Argentina — remoto',
 
   intro: [
@@ -50,7 +50,7 @@ export const es: ResumeData = {
       href: 'https://www.cookunity.com',
       location: 'Estados Unidos — remoto',
       period: 'abr 2023 — Actualidad',
-      roles: [{ title: 'Full Stack Engineer', period: 'abr 2023 — Actualidad' }],
+      roles: [{ title: 'Ingeniero Full Stack', period: 'abr 2023 — Actualidad' }],
       summary:
         'Plataforma para chefs en un marketplace estadounidense de comida a domicilio, en dos squads: Chef OS y Chef Marketing.',
       highlights: [
@@ -83,7 +83,7 @@ export const es: ResumeData = {
       location: 'Buenos Aires, Argentina',
       period: 'feb 2022 — abr 2023',
       roles: [
-        { title: 'Technical Lead', period: 'nov 2022 — abr 2023' },
+        { title: 'Líder Técnico', period: 'nov 2022 — abr 2023' },
         { title: 'Desarrollador Frontend', period: 'feb 2022 — nov 2022' },
       ],
       summary: 'Plataforma digital de comercio y crédito para el sector agroindustrial argentino.',
@@ -246,7 +246,7 @@ export const es: ResumeData = {
   ],
 
   certifications: [
-    { name: 'Programming with Google Go — Especialización', issuer: 'UC Irvine / Coursera', year: '2022' },
+    { name: 'Programming with Google Go — Specialization', issuer: 'UC Irvine / Coursera', year: '2022' },
     { name: 'Introduction to Serverless Computing with AWS Lambda', issuer: 'Coursera', year: '2022' },
   ],
 
