@@ -86,7 +86,6 @@ CHECKS: list[tuple[str, str, str, float]] = [
     ("cert issuer", "text-faint", "bg", AA_TEXT),
     ("footer", "text-faint", "bg", AA_TEXT),
     ("links", "accent-text", "bg", AA_TEXT),
-    ("availability pill", "accent-text", "accent-soft", AA_TEXT),
     ("chip text", "text-muted", "bg-sunken", AA_TEXT),
     ("primary chip", "accent-text", "accent-soft", AA_TEXT),
     ("card copy", "text-muted", "bg-raised", AA_TEXT),

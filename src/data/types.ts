@@ -95,7 +95,6 @@ export interface ResumeData {
   location: string;
   /** Two or three sentences. The positioning statement. */
   intro: string[];
-  availability: string;
 
   links: Link[];
   email: string;

@@ -119,16 +119,9 @@ def main() -> None:
 
     paste_portrait(img)
 
-    y = PAD
-
-    # Availability pill
-    pill_font = sans(21, "Semibold")
-    pill_text = "Open to frontend and product engineering roles"
-    pill_w = text_width(d, pill_text, pill_font) + 62
-    rounded(d, [PAD, y, PAD + pill_w, y + 46], radius=23, fill=ACCENT_SOFT)
-    d.ellipse([PAD + 24, y + 19, PAD + 32, y + 27], fill=ACCENT)
-    d.text((PAD + 44, y + 23), pill_text, font=pill_font, fill=ACCENT, anchor="lm")
-    y += 46 + 44
+    # Vertically centred against the portrait now that the availability pill is
+    # gone — without it the block sat high and left a gap under the footer rule.
+    y = 132
 
     # Name
     name_font = sans(92, "Bold")

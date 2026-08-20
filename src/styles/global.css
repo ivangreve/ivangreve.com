@@ -419,38 +419,6 @@ ul {
   height: 0;
 }
 
-.hero__pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.3rem 0.75rem 0.3rem 0.6rem;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-  font-size: 0.8rem;
-  font-weight: 570;
-  margin-bottom: 1.5rem;
-}
-
-.hero__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex: none;
-  animation: pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.35;
-  }
-}
-
 .hero__name {
   font-size: clamp(2.5rem, 8vw, 4rem);
   letter-spacing: -0.035em;
@@ -1124,8 +1092,7 @@ ul {
   .hero__links,
   .contact__actions,
   .project__links,
-  .skip,
-  .hero__pill .hero__dot {
+  .skip {
     display: none !important;
   }
 

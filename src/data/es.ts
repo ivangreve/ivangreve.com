@@ -19,7 +19,6 @@ export const es: ResumeData = {
     'Antes: Technical Lead sobre un monolito Angular en agronegocios, cinco años cofundando un producto de Big Data e IoT, y cuatro años de full stack .NET. El frontend es donde mejor trabajo — pero puse en producción cada capa que hay debajo, y eso se nota en las decisiones que tomo.',
   ],
 
-  availability: 'Disponible para posiciones de frontend y product engineering',
 
   email: 'ivangreve@gmail.com',
   links: [
