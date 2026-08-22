@@ -757,6 +757,16 @@ ul {
 
 /* --- Projects ------------------------------------------------------------ */
 
+/* Sits between the heading and the cards, so the eye reads the thread before it
+   reads the first project. */
+.projects__lede {
+  max-width: var(--measure);
+  margin: -0.9rem 0 1.9rem;
+  color: var(--text-muted);
+  font-size: 1.0125rem;
+  text-wrap: pretty;
+}
+
 .projects {
   display: grid;
   gap: 1.5rem;
@@ -1165,6 +1175,18 @@ html:not(.js) .shots__slide img {
 
 .footer a {
   color: var(--text-muted);
+}
+
+/* Takes the whole third line rather than competing with the two above it. */
+.footer__build {
+  flex-basis: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.footer__build code {
+  font-family: inherit;
 }
 
 /* ---------------------------------------------------------------------------

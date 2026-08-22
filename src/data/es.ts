@@ -33,6 +33,7 @@ export const es: ResumeData = {
     concurrent: 'en paralelo al trabajo full time',
     newTab: '(se abre en una pestaña nueva)',
     privateSource: 'Código privado',
+    lastUpdated: 'Última actualización',
     carousel: {
       previous: 'Imagen anterior',
       next: 'Imagen siguiente',
@@ -136,6 +137,9 @@ export const es: ResumeData = {
       stack: ['.NET Core', '.NET Framework', 'C#', 'Vue.js', 'React', 'MSSQL', 'PostgreSQL', 'MongoDB'],
     },
   ],
+
+  projectsLede:
+    'Los tres leen el mundo físico donde vivo: una montaña llena de instructores de ski, una casa que anda fuera de la red, un lote de maíz visto desde órbita.',
 
   projects: [
     {

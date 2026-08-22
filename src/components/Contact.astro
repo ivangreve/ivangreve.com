@@ -1,5 +1,6 @@
 ---
 import type { ResumeData } from '../data/types';
+import { buildInfo, formatBuildDate } from '../lib/build-info';
 import { iconForHref } from '../lib/icons';
 import Icon from './Icon.astro';
 
@@ -9,6 +10,11 @@ interface Props {
 
 const { data } = Astro.props;
 const year = new Date().getFullYear();
+
+const updated = buildInfo.date ? formatBuildDate(buildInfo.date, data.lang) : null;
+const commitUrl = buildInfo.commit
+  ? `https://github.com/ivangreve/ivangreve.com/commit/${buildInfo.commit}`
+  : null;
 ---
 
 <section class="contact shell" id="contact" aria-labelledby="contact-title">
@@ -37,4 +43,24 @@ const year = new Date().getFullYear();
 <footer class="footer shell">
   <p>© {year} {data.name}</p>
   <p>{data.footer}</p>
+
+  {/* Says the page is maintained, and points at the proof. Rendered only when
+      the commit is actually known — a provenance line that guesses is worse
+      than none. */}
+  {
+    updated && (
+      <p class="footer__build">
+        {data.ui.lastUpdated} <time datetime={buildInfo.date}>{updated}</time>
+        {commitUrl && (
+          <>
+            {' · '}
+            <a href={commitUrl} rel="noopener noreferrer" target="_blank">
+              <code>{buildInfo.commit}</code>
+              <span class="sr-only"> {data.ui.newTab}</span>
+            </a>
+          </>
+        )}
+      </p>
+    )
+  }
 </footer>

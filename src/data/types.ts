@@ -116,6 +116,8 @@ export interface ResumeData {
     newTab: string;
     /** Marker on projects whose repository is closed. */
     privateSource: string;
+    /** Footer line naming when the page was last updated. */
+    lastUpdated: string;
     /** Labels for the project image carousel. */
     carousel: {
       previous: string;
@@ -141,6 +143,11 @@ export interface ResumeData {
   };
 
   jobs: Job[];
+  /**
+   * One line above the project list naming what the three have in common.
+   * Three cards read as three cards; named, they read as a point of view.
+   */
+  projectsLede: string;
   projects: Project[];
   skills: SkillGroup[];
   education: Study[];

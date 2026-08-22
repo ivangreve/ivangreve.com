@@ -16,6 +16,10 @@ const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').re
 <section class="section shell" id="projects" aria-labelledby="projects-title">
   <h2 class="section__title" id="projects-title">{data.sections.projects}</h2>
 
+  {/* Names the thread running through all three. Without it they read as three
+      unrelated side projects instead of one point of view. */}
+  <p class="projects__lede">{data.projectsLede}</p>
+
   <div class="projects">
     {
       data.projects.map((project) => (
