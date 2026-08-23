@@ -1,0 +1,38 @@
+# The gate, not the deployer. Vercel's git integration already deploys every
+# push to main on its own; duplicating that here would race it. What protects
+# the deploy is this suite refusing broken work at the PR.
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Types and templates
+        run: npx astro check
+
+      - name: Build
+        run: npm run build
+
+      # Both scripts are stdlib-only Python; the print check drives the
+      # runner's preinstalled Google Chrome headless.
+      - name: Contrast audit
+        run: python3 scripts/contrast-audit.py
+
+      - name: Printed page count
+        run: python3 scripts/check-print-pages.py
