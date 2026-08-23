@@ -15,8 +15,8 @@ export const en: ResumeData = {
   location: 'San Carlos de Bariloche, Argentina — remote',
 
   intro: [
-    'I build products end to end. For the last three years that has meant React, React Native and TypeScript at CookUnity, where I led a backoffice platform from scratch, designed the React design system the internal tools run on, and shipped the chef app to the App Store and Google Play.',
-    'Before that: Technical Lead on an Angular monolith in agribusiness, five years co-founding a Big Data and IoT product, and four years of .NET full stack. The frontend is where I do my best work — but I have shipped every layer under it, and it shows in the decisions I make.',
+    'I build products end to end. These days that means React, React Native and TypeScript at CookUnity, on the platform chefs run their kitchens and their business on — web and mobile alike.',
+    'Before that: Angular in agribusiness, a startup of my own in Big Data and IoT, and years of .NET full stack. The frontend is where I do my best work — but I have shipped every layer under it, and it shows in the decisions I make.',
   ],
 
 
