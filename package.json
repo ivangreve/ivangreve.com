@@ -12,7 +12,8 @@
     "contrast": "python3 scripts/contrast-audit.py",
     "print-check": "astro build && python3 scripts/check-print-pages.py",
     "og": "python3 scripts/make-og-image.py",
-    "shots": "python3 scripts/build-shots.py"
+    "shots": "python3 scripts/build-shots.py",
+    "touch-icon": "python3 scripts/make-touch-icon.py"
   },
   "dependencies": {
     "astro": "^5.14.1"

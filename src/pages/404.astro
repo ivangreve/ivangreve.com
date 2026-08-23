@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+
+/**
+ * One 404 for both languages: the URL that got someone here carries no reliable
+ * language signal, so the page says its one line in both and offers both homes.
+ * Static hosts (Vercel, Netlify, Cloudflare Pages, GitHub Pages) all serve
+ * /404.html for unknown routes automatically.
+ */
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 — Iván Greve</title>
+    {/* An error page is nothing a search engine should keep. */}
+    <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <script is:inline>
+      // Same pre-paint theme apply as Base.astro, so a dark-theme visitor does
+      // not get flashed white by the error page of all places.
+      document.documentElement.classList.add('js');
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.dataset.theme = saved;
+        }
+      } catch {}
+    </script>
+  </head>
+
+  <body>
+    <main class="lost shell">
+      <p class="lost__code" aria-hidden="true">404</p>
+      <h1 class="lost__title">
+        <span lang="es">Esta página no existe.</span>
+        <span>This page does not exist.</span>
+      </h1>
+      <div class="lost__links">
+        <a class="control" href="/">Home</a>
+        <a class="control" href="/es/" hreflang="es" lang="es">Inicio</a>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .lost {
+    min-height: 100svh;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .lost__code {
+    font-family: var(--font-mono);
+    font-size: clamp(4rem, 18vw, 8rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--border-strong);
+  }
+
+  .lost__title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .lost__links {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+</style>
