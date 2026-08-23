@@ -273,8 +273,6 @@ export const en: ResumeData = {
 
   contact: {
     heading: 'Let’s talk',
-    body:
-      'I am currently open to frontend and product engineering roles — remote, or based in Bariloche. The fastest way to reach me is email.',
     cta: 'Send me an email',
   },
 

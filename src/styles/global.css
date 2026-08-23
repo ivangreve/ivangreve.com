@@ -1137,12 +1137,6 @@ html:not(.js) .shots__slide img {
   letter-spacing: -0.03em;
 }
 
-.contact__body {
-  max-width: 40ch;
-  margin: 1rem auto 0;
-  color: var(--text-muted);
-}
-
 .contact__actions {
   display: flex;
   flex-wrap: wrap;

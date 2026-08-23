@@ -155,7 +155,6 @@ export interface ResumeData {
 
   contact: {
     heading: string;
-    body: string;
     cta: string;
   };
 

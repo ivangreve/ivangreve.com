@@ -273,8 +273,6 @@ export const es: ResumeData = {
 
   contact: {
     heading: 'Hablemos',
-    body:
-      'Estoy abierto a posiciones de frontend y product engineering — remoto, o con base en Bariloche. La forma más rápida de encontrarme es por mail.',
     cta: 'Escribime un mail',
   },
 
