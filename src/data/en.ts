@@ -241,13 +241,13 @@ export const en: ResumeData = {
       ],
     },
     {
-      label: 'AI-assisted engineering',
+      label: 'AI',
       items: [
         'Claude Code',
         'OpenAI Codex',
+        'Building and using MCPs',
         'Multi-agent workflows',
         'Prompt engineering',
-        'MCP (Model Context Protocol)',
         'AI code review',
         'Spec-driven development',
       ],

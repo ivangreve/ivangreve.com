@@ -241,15 +241,15 @@ export const es: ResumeData = {
       ],
     },
     {
-      label: 'Ingeniería asistida por IA',
+      label: 'IA',
       items: [
         'Claude Code',
         'OpenAI Codex',
+        'Creación y uso de MCPs',
         'Flujos multiagente',
         'Prompt engineering',
-        'MCP (Model Context Protocol)',
         'Code review con IA',
-        'Desarrollo guiado por specs',
+        'Spec-driven development',
       ],
     },
     {
