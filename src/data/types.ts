@@ -80,12 +80,6 @@ export interface Study {
   note?: string;
 }
 
-export interface Certification {
-  name: string;
-  issuer: string;
-  year: string;
-}
-
 export interface ResumeData {
   lang: 'en' | 'es';
   /** Path to the same page in the other language. */
@@ -151,7 +145,6 @@ export interface ResumeData {
   projects: Project[];
   skills: SkillGroup[];
   education: Study[];
-  certifications: Certification[];
 
   contact: {
     heading: string;

@@ -6,7 +6,6 @@ interface Props {
 }
 
 const { data } = Astro.props;
-const certsLabel = data.lang === 'es' ? 'Certificaciones' : 'Certifications';
 ---
 
 <section class="section shell" id="education" aria-labelledby="education-title">
@@ -26,20 +25,4 @@ const certsLabel = data.lang === 'es' ? 'Certificaciones' : 'Certifications';
       ))
     }
   </div>
-
-  {
-    data.certifications.length > 0 && (
-      <div class="certs">
-        <h3 class="certs__label">{certsLabel}</h3>
-        {data.certifications.map((cert) => (
-          <p class="cert">
-            <span class="cert__name">{cert.name}</span>
-            <span class="cert__meta">
-              {cert.issuer} · {cert.year}
-            </span>
-          </p>
-        ))}
-      </div>
-    )
-  }
 </section>

@@ -266,10 +266,6 @@ export const es: ResumeData = {
     },
   ],
 
-  certifications: [
-    { name: 'Programming with Google Go — Specialization', issuer: 'UC Irvine / Coursera', year: '2022' },
-    { name: 'Introduction to Serverless Computing with AWS Lambda', issuer: 'Coursera', year: '2022' },
-  ],
 
   contact: {
     heading: 'Hablemos',

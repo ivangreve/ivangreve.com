@@ -1090,40 +1090,6 @@ html:not(.js) .shots__slide img {
   margin-top: 0.15rem;
 }
 
-.certs {
-  margin-top: 2.25rem;
-  padding-top: 1.75rem;
-  border-top: 1px dashed var(--border);
-  display: grid;
-  gap: 0.6rem;
-}
-
-.certs__label {
-  font-size: 0.78rem;
-  font-weight: 620;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-faint);
-  margin-bottom: 0.4rem;
-}
-
-.cert {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-size: 0.925rem;
-}
-
-.cert__name {
-  font-weight: 540;
-}
-
-.cert__meta {
-  color: var(--text-faint);
-  font-size: 0.825rem;
-}
-
 /* --- Contact & footer ---------------------------------------------------- */
 
 .contact {
@@ -1298,8 +1264,7 @@ html:not(.js) .shots__slide img {
      a sheet blank. */
   .project,
   .study,
-  .skillgroup,
-  .cert {
+  .skillgroup {
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -1344,11 +1309,6 @@ html:not(.js) .shots__slide img {
   .skills,
   .studies {
     gap: 0.5rem;
-  }
-
-  .certs {
-    margin-top: 0.7rem;
-    padding-top: 0.6rem;
   }
 
   .job__highlights,
