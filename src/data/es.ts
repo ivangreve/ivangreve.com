@@ -7,7 +7,7 @@ export const es: ResumeData = {
   meta: {
     title: 'Iván Greve — Ingeniero Frontend',
     description:
-      'Frontend Engineer con más de 8 años construyendo productos de punta a punta. React, React Native, Angular y TypeScript en CookUnity. Radicado en Bariloche, Argentina — trabajo remoto.',
+      'Ingeniero Frontend con más de 8 años construyendo productos de punta a punta. React, React Native, Angular y TypeScript en CookUnity. Radicado en Bariloche, Argentina — trabajo remoto.',
   },
 
   name: 'Iván Greve',
