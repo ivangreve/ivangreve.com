@@ -5,18 +5,18 @@ export const en: ResumeData = {
   altLang: { code: 'es', label: 'Español', href: '/es/' },
 
   meta: {
-    title: 'Iván Greve — Frontend Engineer',
+    title: 'Iván Greve · Frontend Engineer',
     description:
-      'Frontend Engineer with 8+ years building products end to end. React, React Native, Angular and TypeScript at CookUnity. Based in Bariloche, Argentina — working remotely.',
+      'Frontend Engineer with 8+ years building products end to end. React, React Native, Angular and TypeScript at CookUnity. Based in Bariloche, Argentina, working remotely.',
   },
 
   name: 'Iván Greve',
   role: 'Frontend Engineer',
-  location: 'San Carlos de Bariloche, Argentina — remote',
+  location: 'San Carlos de Bariloche, Argentina · remote',
 
   intro: [
-    'I build products end to end. These days that means React, React Native and TypeScript at CookUnity, on the platform chefs run their kitchens and their business on — web and mobile alike.',
-    'Before that: Angular in agribusiness, a startup of my own in Big Data and IoT, and years of .NET full stack. The frontend is where I do my best work — but I have shipped every layer under it, and it shows in the decisions I make.',
+    'I build products end to end. These days that means React, React Native and TypeScript at CookUnity, on the platform chefs run their kitchens and their business on. Web and mobile alike.',
+    'Before that: Angular in agribusiness, a startup of my own in Big Data and IoT, and years of .NET full stack. The frontend is where I do my best work, but I have shipped every layer under it, and it shows in the decisions I make.',
   ],
 
 
@@ -55,18 +55,18 @@ export const en: ResumeData = {
       company: 'CookUnity',
       logo: '/logos/cookunity.webp',
       href: 'https://www.cookunity.com',
-      location: 'United States — remote',
+      location: 'United States · remote',
       period: 'Apr 2023 — Present',
       roles: [{ title: 'Full Stack Engineer', period: 'Apr 2023 — Present' }],
       summary:
         'Chef-facing platform at a US meal-delivery marketplace, across two squads: Chef OS and Chef Marketing.',
       highlights: [
-        'Led the build of a custom backoffice platform from scratch for managing chefs and vendors — media uploads, marketing tooling and chef administration.',
+        'Led the build of a custom backoffice platform from scratch for managing chefs and vendors: media uploads, marketing tooling and chef administration.',
         'Designed and implemented a custom React design system, giving every internal tool a consistent and scalable UI foundation.',
         'Built the web and React Native app chefs use to track their stats, performance and kitchen progress in real time.',
         'Owned iOS and Android releases end to end, including the Fastlane CI/CD pipeline that ships to the App Store and Google Play.',
         'Migrated chef data to a microservices architecture, decoupling the system and making it easier to scale and maintain.',
-        'Shipped UnityPass Hub — a gamified membership system where members earn and redeem points — plus an interactive trivia game with rewards, both aimed at engagement and retention.',
+        'Shipped UnityPass Hub, a gamified membership system where members earn and redeem points, plus an interactive trivia game with rewards, both aimed at engagement and retention.',
         'Replaced manual promotion workflows with internal tooling, and built the analytics dashboards chefs use to make decisions on their own numbers.',
       ],
       stack: [
@@ -104,14 +104,14 @@ export const en: ResumeData = {
     },
     {
       company: 'Kelawar',
-      location: 'Argentina — remote',
+      location: 'Argentina · remote',
       period: 'Apr 2018 — Apr 2023',
       concurrent: true,
       roles: [{ title: 'Co-founder', period: 'Apr 2018 — Apr 2023' }],
       summary:
         'Big Data and IoT product analysing in-store client behaviour. Co-founded and run alongside full-time work.',
       highlights: [
-        'Owned the full product lifecycle — from the initial idea through to deployment and operation.',
+        'Owned the full product lifecycle: from the initial idea through to deployment and operation.',
         'Built a distributed data processing network on Raspberry Pi devices.',
         'Reverse-engineered the IEEE 802.11 protocol to build a passive WiFi device detection system.',
         'Wrote the .NET Core APIs and the Vue.js frontends that consumed them.',
@@ -132,7 +132,7 @@ export const en: ResumeData = {
       highlights: [
         'Designed, built and maintained the applications those clients ran their retail operations on.',
         'Led the web team, owning the technical decisions on stack and ways of working.',
-        'Worked across the whole stack — .NET Core and .NET Framework APIs, MSSQL and PostgreSQL, and Vue.js, React and JavaScript on the client.',
+        'Worked across the whole stack: .NET Core and .NET Framework APIs, MSSQL and PostgreSQL, and Vue.js, React and JavaScript on the client.',
       ],
       stack: ['.NET Core', '.NET Framework', 'C#', 'Vue.js', 'React', 'MSSQL', 'PostgreSQL', 'MongoDB'],
     },
@@ -162,11 +162,11 @@ export const en: ResumeData = {
       name: 'solar-fs',
       tagline: 'Off-grid solar monitoring dashboard',
       description:
-        'A dashboard for Felicity Solar off-grid installations that keeps its own time-series database — 5-minute telemetry plus daily rollups — so it can answer what the vendor cloud cannot: real self-sufficiency, how much energy the backup generator actually contributed, battery charge balance and estimated fuel cost. Multi-user, with per-owner isolation.',
+        'A dashboard for Felicity Solar off-grid installations that keeps its own time-series database (5-minute telemetry plus daily rollups), so it can answer what the vendor cloud cannot: real self-sufficiency, how much energy the backup generator actually contributed, battery charge balance and estimated fuel cost. Multi-user, with per-owner isolation.',
       stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'TypeORM', 'ECharts', 'Vercel'],
       shots: [
         { src: '/projects/solar-fs-1.webp', alt: 'Daily overview: generation, self-sufficiency and the intraday power curves for PV, generator, load and battery charge' },
-        { src: '/projects/solar-fs-2.webp', alt: 'Devices view with the system diagram \u2014 inverter and battery bank with live state of charge' },
+        { src: '/projects/solar-fs-2.webp', alt: 'Devices view with the system diagram: inverter and battery bank with live state of charge' },
         { src: '/projects/solar-fs-3.webp', alt: 'Energy view: source mix and the daily Sankey diagram of kWh per node' },
         { src: '/projects/solar-fs-4.webp', alt: 'Plant home with live power and the day\u2019s running totals' },
       ],
@@ -179,7 +179,7 @@ export const en: ResumeData = {
       name: 'Agro Alerta Plagas',
       tagline: 'Satellite-read pest risk, ranked by field',
       description:
-        'No orbital sensor can resolve a 3 mm insect. So instead of detecting pests, this answers the question an agronomist actually opens the week with — which field do I walk first? — by combining crop phenology measured from Sentinel-2, thermal accumulation from climate reanalysis, and trap counts from the monitoring network. Every number traces back to an image you can look at, on the date the model read it.',
+        'No orbital sensor can resolve a 3 mm insect. So instead of detecting pests, this answers the question an agronomist actually opens the week with: which field do I walk first? It combines crop phenology measured from Sentinel-2, thermal accumulation from climate reanalysis, and trap counts from the monitoring network. Every number traces back to an image you can look at, on the date the model read it.',
       stack: ['Python', 'Sentinel-2', 'STAC', 'NDVI / NDRE', 'Savitzky–Golay', 'Time series'],
       shots: [
         { src: '/projects/agro-1.webp', alt: 'Fields outlined on a satellite mosaic with risk scores, and a field card explaining why it scored 74' },
@@ -241,10 +241,22 @@ export const en: ResumeData = {
       ],
     },
     {
+      label: 'AI-assisted engineering',
+      items: [
+        'Claude Code',
+        'OpenAI Codex',
+        'Multi-agent workflows',
+        'Prompt engineering',
+        'MCP (Model Context Protocol)',
+        'AI code review',
+        'Spec-driven development',
+      ],
+    },
+    {
       label: 'Ways of working',
       items: ['Technical leadership', 'Agile / Scrum', 'Code review', 'Mentoring', 'Design patterns'],
     },
-    { label: 'Languages', items: ['Spanish — native', 'English — professional working proficiency'] },
+    { label: 'Languages', items: ['Spanish (native)', 'English (professional working proficiency)'] },
   ],
 
   education: [

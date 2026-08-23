@@ -45,7 +45,7 @@ MONO = "/System/Library/Fonts/SFNSMono.ttf"
 
 NAME = "Iván Greve"
 ROLE = "Frontend Engineer"
-BLURB = "I build products end to end — React, React Native\nand TypeScript at CookUnity."
+BLURB = "I build products end to end: React, React Native\nand TypeScript at CookUnity."
 LOCATION = "San Carlos de Bariloche, Argentina · remote"
 CHIPS = ["React", "React Native", "Angular", "TypeScript", "Next.js", "Node.js"]
 DOMAIN = "ivangreve.com"

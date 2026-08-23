@@ -13,7 +13,7 @@ const alternate = new URL(data.altLang.href, Astro.site).href;
 // Shared by both languages — the card is name, role and stack, which do not
 // translate. Regenerate with scripts/make-og-image.py after editing those.
 const ogImage = new URL('/og.png', Astro.site).href;
-const ogImageAlt = `${data.name} — ${data.role}. ${data.location}.`;
+const ogImageAlt = `${data.name} · ${data.role}. ${data.location}.`;
 
 // Structured data: this is the machine-readable version of the same résumé, so a
 // recruiter's tooling (and Google) reads it without guessing at the markup.
