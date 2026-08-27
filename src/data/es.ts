@@ -5,18 +5,18 @@ export const es: ResumeData = {
   altLang: { code: 'en', label: 'English', href: '/' },
 
   meta: {
-    title: 'Iván Greve — Ingeniero Frontend',
+    title: 'Iván Greve · Ingeniero Frontend',
     description:
-      'Ingeniero Frontend con más de 8 años construyendo productos de punta a punta. React, React Native, Angular y TypeScript en CookUnity. Radicado en Bariloche, Argentina — trabajo remoto.',
+      'Ingeniero Frontend con más de 8 años construyendo productos de punta a punta. React, React Native, Angular y TypeScript en CookUnity. Radicado en Bariloche, Argentina, trabajo remoto.',
   },
 
   name: 'Iván Greve',
   role: 'Ingeniero Frontend',
-  location: 'San Carlos de Bariloche, Argentina — remoto',
+  location: 'San Carlos de Bariloche, Argentina · remoto',
 
   intro: [
-    'Construyo productos de punta a punta. En los últimos tres años eso significó React, React Native y TypeScript en CookUnity, donde lideré la construcción de una plataforma de backoffice desde cero, diseñé el design system de React sobre el que corren las herramientas internas y publiqué la app de chefs en la App Store y en Google Play.',
-    'Antes: Technical Lead sobre un monolito Angular en agronegocios, cinco años cofundando un producto de Big Data e IoT, y cuatro años de full stack .NET. El frontend es donde mejor trabajo — pero puse en producción cada capa que hay debajo, y eso se nota en las decisiones que tomo.',
+    'Construyo productos de punta a punta. Hoy eso significa React, React Native y TypeScript en CookUnity, en la plataforma con la que los chefs manejan su cocina y su negocio. Web y mobile por igual.',
+    'Antes: Angular en agronegocios, una startup propia de Big Data e IoT, y años de full stack .NET. El frontend es donde mejor trabajo, pero puse en producción cada capa que hay debajo, y eso se nota en las decisiones que tomo.',
   ],
 
 
@@ -55,18 +55,18 @@ export const es: ResumeData = {
       company: 'CookUnity',
       logo: '/logos/cookunity.webp',
       href: 'https://www.cookunity.com',
-      location: 'Estados Unidos — remoto',
+      location: 'Estados Unidos · remoto',
       period: 'abr 2023 — Actualidad',
       roles: [{ title: 'Ingeniero Full Stack', period: 'abr 2023 — Actualidad' }],
       summary:
         'Plataforma para chefs en un marketplace estadounidense de comida a domicilio, en dos squads: Chef OS y Chef Marketing.',
       highlights: [
-        'Lideré la construcción desde cero de una plataforma de backoffice para administrar chefs y proveedores — carga de media, herramientas de marketing y administración de chefs.',
+        'Lideré la construcción desde cero de una plataforma de backoffice para administrar chefs y proveedores: carga de media, herramientas de marketing y administración de chefs.',
         'Diseñé e implementé un design system propio en React, que le dio a todas las herramientas internas una base de UI consistente y escalable.',
         'Construí la aplicación web y la app en React Native que usan los chefs para seguir sus métricas, su rendimiento y el estado de su cocina en tiempo real.',
         'Me hice cargo de los releases de iOS y Android de punta a punta, incluido el pipeline de CI/CD con Fastlane que publica en la App Store y en Google Play.',
         'Migré los datos de chefs a una arquitectura de microservicios, desacoplando el sistema y volviéndolo más fácil de escalar y mantener.',
-        'Implementé UnityPass Hub — un sistema de membresía gamificado donde los miembros acumulan y canjean puntos — y un juego de trivia interactivo con recompensas, ambos orientados a engagement y retención.',
+        'Implementé UnityPass Hub, un sistema de membresía gamificado donde los miembros acumulan y canjean puntos, y un juego de trivia interactivo con recompensas, ambos orientados a engagement y retención.',
         'Reemplacé flujos manuales de gestión de promociones por herramientas internas, y construí los dashboards de analytics con los que los chefs toman decisiones sobre sus propios números.',
       ],
       stack: [
@@ -104,14 +104,14 @@ export const es: ResumeData = {
     },
     {
       company: 'Kelawar',
-      location: 'Argentina — remoto',
+      location: 'Argentina · remoto',
       period: 'abr 2018 — abr 2023',
       concurrent: true,
       roles: [{ title: 'Cofundador', period: 'abr 2018 — abr 2023' }],
       summary:
         'Producto de Big Data e IoT para analizar el comportamiento de clientes en el punto de venta. Cofundado y llevado adelante en paralelo al trabajo full time.',
       highlights: [
-        'Me hice cargo del ciclo de vida completo del producto — de la idea inicial al despliegue y la operación.',
+        'Me hice cargo del ciclo de vida completo del producto: de la idea inicial al despliegue y la operación.',
         'Construí una red distribuida de procesamiento de datos sobre dispositivos Raspberry Pi.',
         'Analicé el protocolo IEEE 802.11 para desarrollar un sistema pasivo de detección de dispositivos WiFi.',
         'Escribí las APIs en .NET Core y los frontends en Vue.js que las consumían.',
@@ -132,7 +132,7 @@ export const es: ResumeData = {
       highlights: [
         'Diseñé, construí y mantuve las aplicaciones sobre las que esos clientes operaban su negocio de retail.',
         'Lideré el equipo web, con la responsabilidad sobre las decisiones técnicas de stack y de forma de trabajo.',
-        'Trabajé sobre todo el stack — APIs en .NET Core y .NET Framework, MSSQL y PostgreSQL, y Vue.js, React y JavaScript del lado del cliente.',
+        'Trabajé sobre todo el stack: APIs en .NET Core y .NET Framework, MSSQL y PostgreSQL, y Vue.js, React y JavaScript del lado del cliente.',
       ],
       stack: ['.NET Core', '.NET Framework', 'C#', 'Vue.js', 'React', 'MSSQL', 'PostgreSQL', 'MongoDB'],
     },
@@ -149,11 +149,10 @@ export const es: ResumeData = {
         'Un marketplace de dos lados: el rider encuentra instructores en el mapa, filtra por disciplina, mira el perfil y reserva en segundos; el instructor administra su calendario, lo sincroniza con Google Calendar y cobra. App en Expo para ambos lados, más el sitio de la landing.',
       stack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'TanStack Query'],
       shots: [
-        { src: '/projects/snowride-1.webp', alt: 'Mapa de exploraci\u00f3n con instructores en Bariloche, junto al perfil de un instructor con su tarifa, disciplinas y rese\u00f1as' },
-        { src: '/projects/snowride-2.webp', alt: 'La lista de reservas de un rider y el chat con su instructor' },
-        { src: '/projects/snowride-3.webp', alt: 'El lado del instructor: sus pr\u00f3ximas clases y el perfil p\u00fablico que administra' },
-        { src: '/projects/snowride-4.webp', alt: 'Detalle de una clase con el alumno y el lugar, al lado de la pantalla de avisos' },
-        { src: '/projects/snowride-5.webp', alt: 'Configuraci\u00f3n de sincronizaci\u00f3n de calendario y las entradas que genera en Google Calendar' },
+        { src: '/projects/snowride-1.webp', alt: 'La home del rider con el clima y la base de nieve de Portillo, junto a la lista de instructores con tarifas, puntajes y qui\u00e9n est\u00e1 disponible hoy' },
+        { src: '/projects/snowride-2.webp', alt: 'El perfil verificado de un instructor con tarifa, experiencia y rese\u00f1as, al lado de la pantalla de reservas con clases confirmadas y sus precios' },
+        { src: '/projects/snowride-3.webp', alt: 'La home del instructor: ingresos de la semana, solicitudes pendientes para aceptar o rechazar, junto a la agenda con la disponibilidad del d\u00eda' },
+        { src: '/projects/snowride-4.webp', alt: 'Tarifas por disciplina y cantidad de alumnos, y el mapa de pistas del Cerro Catedral' },
       ],
       links: [],
       privateSource: true,
@@ -162,11 +161,11 @@ export const es: ResumeData = {
       name: 'solar-fs',
       tagline: 'Dashboard de monitoreo solar off-grid',
       description:
-        'Un dashboard para instalaciones off-grid de Felicity Solar que mantiene su propia base de series temporales — telemetría cada 5 minutos más consolidados diarios — para responder lo que la nube del fabricante no responde: autosuficiencia real, cuánta energía aportó de verdad el generador de respaldo, balance de carga de las baterías y costo estimado de combustible. Multiusuario, con aislamiento por dueño.',
+        'Un dashboard para instalaciones off-grid de Felicity Solar que mantiene su propia base de series temporales (telemetría cada 5 minutos más consolidados diarios), para responder lo que la nube del fabricante no responde: autosuficiencia real, cuánta energía aportó de verdad el generador de respaldo, balance de carga de las baterías y costo estimado de combustible. Multiusuario, con aislamiento por dueño.',
       stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'TypeORM', 'ECharts', 'Vercel'],
       shots: [
         { src: '/projects/solar-fs-1.webp', alt: 'Resumen diario: generaci\u00f3n, autosuficiencia y las curvas de potencia del d\u00eda para paneles, generador, consumo y carga de bater\u00edas' },
-        { src: '/projects/solar-fs-2.webp', alt: 'Vista de dispositivos con el diagrama del sistema \u2014 inversor y banco de bater\u00edas con su carga en vivo' },
+        { src: '/projects/solar-fs-2.webp', alt: 'Vista de dispositivos con el diagrama del sistema: inversor y banco de bater\u00edas con su carga en vivo' },
         { src: '/projects/solar-fs-3.webp', alt: 'Vista de energ\u00eda: mezcla de fuentes y el diagrama Sankey diario de kWh por nodo' },
         { src: '/projects/solar-fs-4.webp', alt: 'Inicio de la planta con la potencia en vivo y los acumulados del d\u00eda' },
       ],
@@ -179,13 +178,13 @@ export const es: ResumeData = {
       name: 'Agro Alerta Plagas',
       tagline: 'Riesgo de plagas por lote, leído desde el satélite',
       description:
-        'Ningún sensor orbital resuelve un insecto de 3 mm. Así que en vez de detectar plagas, esto responde la pregunta con la que un asesor abre la semana — ¿qué lote recorro primero? — combinando fenología del cultivo medida por Sentinel-2, acumulación térmica de reanálisis climático y capturas de las trampas de la red de monitoreo. Cada número se puede rastrear hasta una imagen que se puede mirar, en la fecha exacta en que el modelo la leyó.',
+        'Ningún sensor orbital resuelve un insecto de 3 mm. Así que en vez de detectar plagas, esto responde la pregunta con la que un asesor abre la semana: ¿qué lote recorro primero? Combina fenología del cultivo medida por Sentinel-2, acumulación térmica de reanálisis climático y capturas de las trampas de la red de monitoreo. Cada número se puede rastrear hasta una imagen que se puede mirar, en la fecha exacta en que el modelo la leyó.',
       stack: ['Python', 'Sentinel-2', 'STAC', 'NDVI / NDRE', 'Savitzky–Golay', 'Series temporales'],
       shots: [
-        { src: '/projects/agro-1.webp', alt: 'Lotes dibujados sobre un mosaico satelital con sus puntajes de riesgo, y la ficha de un lote explicando por qu\u00e9 sac\u00f3 74' },
-        { src: '/projects/agro-2.webp', alt: 'Informe de un lote: la curva de verdor de la campa\u00f1a y los sectores marcados como an\u00f3malos' },
-        { src: '/projects/agro-3.webp', alt: 'Tabla del portafolio ordenando cada lote por riesgo, superficie y d\u00edas hasta la pr\u00f3xima ventana de emergencia' },
-        { src: '/projects/agro-4.webp', alt: 'Dibujando un lote nuevo sobre el mapa, y la pantalla de acceso' },
+        { src: '/projects/agro-1.webp', alt: 'El panel: once lotes marcados sobre un mosaico Sentinel-2 con sus puntajes de riesgo, los an\u00e1lisis recientes y la curva de verdor del portafolio' },
+        { src: '/projects/agro-2.webp', alt: 'Un lote en detalle: riesgo 42 de 100, sectores an\u00f3malos dibujados sobre la imagen satelital, la l\u00ednea de tiempo de la campa\u00f1a y un recorrido por 49 capturas sin nubes' },
+        { src: '/projects/agro-3.webp', alt: 'El resumen de campa\u00f1a en palabras simples, y la tabla del portafolio ordenando cada lote por riesgo con su curva de campa\u00f1a' },
+        { src: '/projects/agro-4.webp', alt: 'La vista de mapa: todo el portafolio marcado sobre el mosaico Sentinel-2 sin nubes de la Pampa h\u00fameda' },
       ],
       links: [],
       privateSource: true,
@@ -241,10 +240,22 @@ export const es: ResumeData = {
       ],
     },
     {
+      label: 'IA',
+      items: [
+        'Claude Code',
+        'OpenAI Codex',
+        'Creación y uso de MCPs',
+        'Flujos multiagente',
+        'Prompt engineering',
+        'Code review con IA',
+        'Spec-driven development',
+      ],
+    },
+    {
       label: 'Forma de trabajo',
       items: ['Liderazgo técnico', 'Agile / Scrum', 'Code review', 'Mentoría', 'Patrones de diseño'],
     },
-    { label: 'Idiomas', items: ['Español — nativo', 'Inglés — nivel profesional de trabajo'] },
+    { label: 'Idiomas', items: ['Español (nativo)', 'Inglés (nivel profesional de trabajo)'] },
   ],
 
   education: [

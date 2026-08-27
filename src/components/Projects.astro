@@ -62,7 +62,7 @@ const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').re
                     {/* The hero and contact rows also carry links labelled
                         "GitHub". Pulled up in a screen reader's link list they
                         would be indistinguishable, so name the project. */}
-                    <span class="sr-only"> — {project.name} {data.ui.newTab}</span>
+                    <span class="sr-only">, {project.name} {data.ui.newTab}</span>
                   </a>
                 ))}
               </div>
