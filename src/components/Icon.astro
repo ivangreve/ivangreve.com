@@ -21,7 +21,8 @@ interface Props {
     | 'lock'
     | 'globe'
     | 'sun'
-    | 'moon';
+    | 'moon'
+    | 'graduation';
   /** Pixel size; defaults to the 15px used by the control row. */
   size?: number;
   class?: string;
@@ -107,4 +108,13 @@ const filled = FILLED.has(name);
     )
   }
   {name === 'moon' && <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />}
+  {
+    name === 'graduation' && (
+      <>
+        <path d="M12 4 2 9l10 5 10-5-10-5z" />
+        <path d="M6 11.5V16c0 1.4 2.7 2.8 6 2.8s6-1.4 6-2.8v-4.5" />
+        <path d="M22 9v5" />
+      </>
+    )
+  }
 </svg>

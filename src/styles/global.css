@@ -1073,6 +1073,22 @@ html:not(.js) .shots__slide img {
   padding-top: 0.25rem;
 }
 
+/* Same tile the experience rail wears, with a graduation cap instead of a
+   company mark. --text-muted, not --text-faint: it sits on --bg-sunken, the
+   same surface trap the company monogram fell into. */
+.study__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 0.6rem;
+  border-radius: 8px;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
 .study__degree {
   font-weight: 600;
   font-size: 1rem;
@@ -1225,8 +1241,9 @@ html:not(.js) .shots__slide img {
   }
 
   /* Company marks are a screen flourish. On paper they eat the date rail and
-     add nothing a recruiter reads. */
-  .job__mark {
+     add nothing a recruiter reads. Same goes for the graduation tile. */
+  .job__mark,
+  .study__mark {
     display: none !important;
   }
 

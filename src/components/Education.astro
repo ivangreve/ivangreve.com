@@ -1,5 +1,6 @@
 ---
 import type { ResumeData } from '../data/types';
+import Icon from './Icon.astro';
 
 interface Props {
   data: ResumeData;
@@ -15,7 +16,14 @@ const { data } = Astro.props;
     {
       data.education.map((study) => (
         <article class="study">
-          <p class="study__period">{study.period}</p>
+          <div class="study__period">
+            {/* Mirrors the company tile on the experience rail. Decorative: the
+                degree and institution sit right beside it in text. */}
+            <span class="study__mark" aria-hidden="true">
+              <Icon name="graduation" size={16} />
+            </span>
+            {study.period}
+          </div>
           <div>
             <h3 class="study__degree">{study.degree}</h3>
             <p class="study__institution">{study.institution}</p>
