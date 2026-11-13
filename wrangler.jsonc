@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // ivangreve.com: sitio estático de Astro servido por Cloudflare Workers (antes Vercel).
+  "name": "ivangreve-site",
+  "compatibility_date": "2026-11-01",
+  "routes": [
+    { "pattern": "ivangreve.com", "custom_domain": true },
+    { "pattern": "www.ivangreve.com", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
